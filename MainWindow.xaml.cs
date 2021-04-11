@@ -29,20 +29,24 @@ namespace Notebook
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            //opens file dialog
             SaveFileDialog SaveWindow = new SaveFileDialog();
             SaveWindow.Filter = "Text Documents (*.txt)|*.txt|All Files (*.*)|*.*";
             if (SaveWindow.ShowDialog() == true)
             {
+                //writes text in textbox to the selected file
                 File.WriteAllText(SaveWindow.FileName, TextB.Text);
             }
         }
 
         private void LoadBTN_Click(object sender, RoutedEventArgs e)
         {
+            //opens file dialog
             OpenFileDialog LoadWindow = new OpenFileDialog();
             LoadWindow.Filter = "Text Documents (*.txt)|*.txt|All Files (*.*)|*.*";
             if (LoadWindow.ShowDialog() == true)
             {
+                //sets textbox text to text that was in file
                 TextB.Text = File.ReadAllText(LoadWindow.FileName);
             }
         }
